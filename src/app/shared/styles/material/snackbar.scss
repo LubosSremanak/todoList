@@ -1,0 +1,30 @@
+.snackbar {
+  border-radius: 1rem !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2) !important;
+  background-color: white !important;
+  .mat-simple-snackbar {
+    display: flex !important;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+  }
+  .mat-simple-snackbar-action {
+    display: none !important;
+  }
+}
+
+.snackbar-neutral {
+  color: #212121 !important;
+}
+
+.snackbar-success {
+  color: #4abc3d !important;
+}
+
+.snackbar-warning {
+  color: #bcb13d !important;
+}
+
+.snackbar-danger {
+  color: #bc3d3d !important;
+}

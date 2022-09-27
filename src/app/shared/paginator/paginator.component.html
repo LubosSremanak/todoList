@@ -1,0 +1,13 @@
+<div class="paginator w-fit flex items-center shadow rounded-xl backdrop-blur">
+  <button
+    (click)="previous()"
+    [disabled]="paginationParams.page === 1"
+    disableRipple
+    mat-icon-button>
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <span class="font-semibold">{{ paginationParams.page }}</span>
+  <button (click)="next()" disableRipple mat-icon-button>
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

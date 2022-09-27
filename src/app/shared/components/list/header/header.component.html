@@ -1,0 +1,10 @@
+<div
+  *ngIf="titleRef"
+  class="header text-neutral-800 flex items-center justify-between w-full font-semibold text-base">
+  <input
+    (change)="emitAction({ type: 'edit' })"
+    [(ngModel)]="titleRef.title"
+    class="title w-full"
+    matInput />
+  <app-actions (action)="emitAction($event)" [actions]="actions"></app-actions>
+</div>

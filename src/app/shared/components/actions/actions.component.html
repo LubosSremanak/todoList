@@ -1,0 +1,12 @@
+<div class="actions flex gap-2 p-2">
+  <button
+    [matTooltip]="action.tooltip"
+    (click)="emitAction(action.event)"
+    *ngFor="let action of actions"
+    class="action-button rounded-full shadow"
+    mat-icon-button>
+    <mat-icon [ngClass]="action.colorClass || ''" class="text-black text-xl">{{
+      action.iconId
+    }}</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,9 @@
+.router-loading-wrapper {
+  position: fixed;
+  z-index: 99999;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 200ms background-color;
+  backdrop-filter: blur(3px);
+}

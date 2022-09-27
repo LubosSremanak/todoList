@@ -1,0 +1,12 @@
+<div class="navigation sticky top-0 left-0 w-full z-50 shadow">
+  <div class="bg-white w-full flex items-center h-10 p-5">
+    <span class="text-xl font-semibold">
+      <span class="text-black">TO</span>
+      <span class="text-green-500">DO</span>
+    </span>
+  </div>
+  <mat-progress-bar
+    *ngIf="loading$ | async"
+    class="fixed"
+    mode="indeterminate"></mat-progress-bar>
+</div>

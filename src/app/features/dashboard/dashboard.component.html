@@ -1,0 +1,42 @@
+<div class="p-5 w-full flex justify-end">
+  <app-paginator
+    (action)="handleListAction($event)"
+    [paginationParams]="paginationParams"></app-paginator>
+</div>
+<ng-container
+  *ngIf="{
+    lists: lists$ | async,
+    listsError: listsError$ | async
+  } as resolved">
+  <div
+    (cdkDropListDropped)="drop($event)"
+    *ngIf="!resolved.listsError && resolved.lists as lists; else loading"
+    [cdkDropListData]="lists"
+    cdkDropList
+    cdkDropListGroup
+    cdkDropListOrientation="horizontal"
+    class="dashboard w-full px-10">
+    <app-list
+      (action)="handleListAction($event)"
+      *ngFor="let list of lists"
+      [@enterAnimation]="true"
+      [list]="list"
+      cdkDrag
+      class="list w-full">
+      >
+    </app-list>
+    <div
+      *ngIf="lists.length === 0"
+      class="placeholder-wrapper flex w-full items-center justify-center">
+      <app-placeholder [message]="'No lists at this moment'"></app-placeholder>
+    </div>
+  </div>
+
+  <button [matTooltip]="'Add list'" class="fixed bottom-10 right-10">
+    <mat-icon (click)="addList()" class="text-5xl">add_circle</mat-icon>
+  </button>
+
+  <ng-template #loading>
+    <app-spinner *ngIf="!resolved.listsError"></app-spinner>
+  </ng-template>
+</ng-container>

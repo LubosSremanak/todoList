@@ -1,0 +1,26 @@
+<div
+  *ngIf="item"
+  [class.!from-green-100]="item.isDone"
+  class="item w-full flex flex-col gap-5 rounded-2xl px-5 py-2 shadow backdrop-blur bg-gradient-to-r from-gray-50 cursor-move text-gray-400 text-sm">
+  <app-header
+    (action)="handleHeaderAction($event)"
+    [actions]="actions"
+    [titleRef]="item"></app-header>
+  <textarea
+    (change)="handleHeaderAction({ type: 'edit' })"
+    [(ngModel)]="item.content"
+    class="disable-resize w-full"
+    matInput
+    [placeholder]="'Note...'"></textarea>
+  <div class="w-full flex justify-end font-medium text-black">
+    <ngx-mat-datetime-picker color="accent" #picker></ngx-mat-datetime-picker>
+    <input
+      readonly
+      [(ngModel)]="item.endDate"
+      (click)="picker.open()"
+      class="date-time"
+      [disabled]="item.isDone"
+      matInput
+      [ngxMatDatetimePicker]="picker" />
+  </div>
+</div>

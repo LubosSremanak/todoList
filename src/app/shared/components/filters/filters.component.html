@@ -1,0 +1,10 @@
+<div class="filters flex flex-wrap gap-2 text-sm">
+  <button
+    (click)="emitAction(filter)"
+    *ngFor="let filter of filters; let index = index; trackBy: trackFilter"
+    [class.bg-gray-900]="filter.isSelected"
+    [class.text-white]="filter.isSelected"
+    class="filter bg-white text-black rounded-2xl shadow w-fit px-4 py-0.5 font-semibold">
+    {{ filter.value }}
+  </button>
+</div>

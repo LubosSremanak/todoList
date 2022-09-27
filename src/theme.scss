@@ -1,0 +1,55 @@
+@use '@angular/material' as mat;
+@import 'src/app/shared/styles/material/date-time-picker';
+@import 'src/app/shared/styles/material/snackbar';
+@import 'src/app/shared/styles/material/dialog';
+
+$ls-primary-palette: (
+  50: #f6f6f6,
+  100: #ebebeb,
+  200: #dddddd,
+  300: #c8c8c8,
+  400: #a3a3a3,
+  500: #818181,
+  600: #5a5a5a,
+  700: #484848,
+  800: #2b2b2b,
+  900: #080808,
+  A100: #ebebeb,
+  A200: #dddddd,
+  A400: #c8c8c8,
+  A700: #a3a3a3,
+  contrast: (
+    50: #f6f6f6,
+    100: #ebebeb,
+    200: #dddddd,
+    300: #c8c8c8,
+    400: #a3a3a3,
+    500: #818181,
+    600: #5a5a5a,
+    700: #484848,
+    800: #2b2b2b,
+    900: #080808,
+    A100: #ebebeb,
+    A200: #dddddd,
+    A400: #c8c8c8,
+    A700: #a3a3a3,
+  ),
+);
+
+@include mat.core();
+
+$todoList-primary: mat.define-palette($ls-primary-palette);
+$todoList-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$todoList-warn: mat.define-palette(mat.$red-palette);
+
+$todoList-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $todoList-primary,
+      accent: $todoList-accent,
+      warn: $todoList-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($todoList-theme);
