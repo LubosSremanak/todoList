@@ -16,6 +16,7 @@
     <ngx-mat-datetime-picker color="accent" #picker></ngx-mat-datetime-picker>
     <input
       readonly
+      (dateChange)="handleHeaderAction({ type: 'edit' })"
       [(ngModel)]="item.endDate"
       (click)="picker.open()"
       class="date-time"
